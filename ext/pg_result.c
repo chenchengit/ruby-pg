@@ -1,6 +1,6 @@
 /*
  * pg_result.c - PG::Result class extension
- * $Id$
+ * $Id: pg_result.c,v e2f58175db88 2012/12/19 16:05:22 kanis $
  *
  */
 
@@ -839,7 +839,7 @@ static VALUE
 pgresult_field_values( VALUE self, VALUE field )
 {
 	PGresult *result = pgresult_get( self );
-	const char *fieldname = RSTRING_PTR( field );
+	const char *fieldname = StringValuePtr( field );
 	int fnum = PQfnumber( result, fieldname );
 
 	if ( fnum < 0 )
